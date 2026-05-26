@@ -1,0 +1,18 @@
+@use "../../../styles/mixins" as *;
+
+.footer {
+  padding: var(--spacing-lg) var(--spacing-lg);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+
+  @include mobile {
+    position: relative;
+  }
+}
+
+.text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}

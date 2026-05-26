@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-md);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  font-size: 1.4rem;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+
+  &:hover {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}

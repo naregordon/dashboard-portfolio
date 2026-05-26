@@ -1,0 +1,41 @@
+@use "variables";
+@use "reset";
+
+// ─── Animated border ──────────────────────────────────────────────────────────
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+// ─── Light theme ─────────────────────────────────────────────────────────────
+
+:root.light {
+  --color-bg: #f2f2f7;
+  --color-surface: #ffffff;
+  --color-border: #d1d1d6;
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #6e6e73;
+  --color-widget-bg: rgba(255, 255, 255, 0.7);
+  --color-widget-border: rgba(0, 0, 0, 0.07);
+  --color-widget-bg-hover: rgba(255, 255, 255, 0.9);
+  --shadow-widget-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+// ─── Accessibility mode ───────────────────────────────────────────────────────
+
+:root.accessible {
+  --transition-fast: 0ms;
+  --transition-base: 0ms;
+  --transition-slow: 0ms;
+  --font-size-base: 1.1rem;
+  --font-size-sm: 0.95rem;
+  --color-text-secondary: #aaaaaa;
+  --line-height-normal: 1.7;
+}
+
+:root.accessible * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+}

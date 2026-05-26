@@ -1,0 +1,82 @@
+.strips {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-inline: calc(-1 * var(--spacing-xl));
+}
+
+.strip {
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+
+  &:hover .inner {
+    animation-play-state: paused;
+  }
+}
+
+.inner {
+  display: flex;
+  gap: var(--spacing-md);
+  width: max-content;
+  animation: scrollLeft 36s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  white-space: nowrap;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.icon {
+  $icon-size: 50px;
+  width: $icon-size;
+  height: $icon-size;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+.moreButton {
+  position: absolute;
+  inset-block-end: var(--spacing-md);
+  inset-inline-end: var(--spacing-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}

@@ -1,0 +1,222 @@
+.page {
+  padding: var(--spacing-2xl) 0;
+}
+
+// ─── Timeline ─────────────────────────────────────────────────────────────────
+
+.timeline {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: var(--color-widget-border);
+  }
+}
+
+// ─── Scroll animations ────────────────────────────────────────────────────────
+
+@keyframes itemReveal {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardSlideRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes cardSlideLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dotReveal {
+  from { opacity: 0; transform: scale(0.2); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+// ─── Item ─────────────────────────────────────────────────────────────────────
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
+  padding: var(--spacing-lg) 0;
+  animation: itemReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 60%;
+}
+
+// ─── Center dot ───────────────────────────────────────────────────────────────
+
+.center {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--color-bg);
+  flex-shrink: 0;
+  animation: dotReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 15% entry 65%;
+}
+
+// ─── Date side ────────────────────────────────────────────────────────────────
+
+.dateSide {
+  grid-row: 1;
+  display: flex;
+
+  .itemOdd & {
+    grid-column: 1;
+    justify-content: flex-end;
+    padding-right: var(--spacing-xl);
+  }
+
+  .itemEven & {
+    grid-column: 3;
+    justify-content: flex-start;
+    padding-left: var(--spacing-xl);
+  }
+}
+
+.dateBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 999px;
+  border: 1px solid;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  background: rgba(255, 255, 255, 0.03);
+  white-space: nowrap;
+}
+
+// ─── Card side ────────────────────────────────────────────────────────────────
+
+.cardSide {
+  grid-row: 1;
+  display: flex;
+
+  .itemOdd & {
+    grid-column: 3;
+    justify-content: flex-start;
+    padding-left: var(--spacing-xl);
+  }
+
+  .itemEven & {
+    grid-column: 1;
+    justify-content: flex-end;
+    padding-right: var(--spacing-xl);
+  }
+}
+
+.itemOdd .card {
+  animation: cardSlideRight linear both;
+  animation-timeline: view();
+  animation-range: entry 10% entry 65%;
+}
+
+.itemEven .card {
+  animation: cardSlideLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 10% entry 65%;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-widget-bg);
+  border: 1px solid var(--color-widget-border);
+  border-top-width: 3px;
+  border-radius: var(--radius-card);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  transition: background var(--transition-base);
+
+  &:hover {
+    background: var(--color-widget-bg-hover);
+  }
+}
+
+.role {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.company {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.description {
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+// ─── Mobile ───────────────────────────────────────────────────────────────────
+
+@media (max-width: 768px) {
+  .timeline {
+    &::before {
+      left: 20px;
+      transform: none;
+    }
+  }
+
+  .item,
+  .itemOdd,
+  .itemEven {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 52px;
+    padding-bottom: var(--spacing-xl);
+    position: relative;
+  }
+
+  .center {
+    position: absolute;
+    left: 13px;
+    top: 6px;
+  }
+
+  .dateSide,
+  .itemOdd .dateSide,
+  .itemEven .dateSide {
+    order: 1;
+    padding: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cardSide,
+  .itemOdd .cardSide,
+  .itemEven .cardSide {
+    order: 2;
+    padding: 0;
+    width: 100%;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
