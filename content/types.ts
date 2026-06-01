@@ -8,6 +8,7 @@ export type Skill = {
   icon: IconType;
   label: string;
   category: SkillCategoryKey;
+  level?: number;
 };
 
 export type Experience = {
@@ -22,6 +23,7 @@ export type Experience = {
 export type Social = {
   icon: IconType;
   label: string;
+  handle: string;
   href: string;
   color: string;
   bg: string;
@@ -33,11 +35,26 @@ export type SiteContent = {
   experiences: Experience[];
   socials: Social[];
   about: string;
+  availability: {
+    open: boolean;
+    label: string;
+  };
+  tagline: string;
+  now: {
+    text: string;
+    tags: string[];
+  };
+  stats: {
+    yearsLabel: string;
+    projectsLabel: string;
+    projects: string;
+  };
   contact: {
     tagline: string;
     cta: string;
   };
   resume: {
+    tagline: string;
     downloadLabel: string;
   };
   contactForm: {
@@ -68,6 +85,8 @@ export type SiteContent = {
       contact: string;
       resume: string;
       settings: string;
+      now: string;
+      social: string;
     };
     pages: {
       experiences: string;

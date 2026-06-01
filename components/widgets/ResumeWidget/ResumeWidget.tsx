@@ -14,16 +14,13 @@ export default function ResumeWidget({ displayed }: Props) {
   return (
     <Widget>
       <div className={`${styles.body} ${displayed ? styles.visible : ""}`}>
-        <div className={styles.iconWrap}>
-          <MdOutlineFileDownload className={styles.icon} aria-hidden="true" />
-        </div>
-        <p className={styles.label}>Lucas Haladjian</p>
-        <p className={styles.sublabel}>Front-end Developer</p>
+        <p className={styles.tagline}>{content.resume.tagline}</p>
         <a
           href="/assets/resume_lucas_haladjian.pdf"
           download="Resume_Lucas_Haladjian.pdf"
           className={styles.button}
         >
+          <MdOutlineFileDownload className={styles.icon} aria-hidden="true" />
           {content.resume.downloadLabel}
         </a>
       </div>

@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContent } from "@/context/LocaleContext";
 import styles from "./ContactPage.module.scss";
 
-export default function ContactPage() {
+export default function ContactPage({ isOpen = false }: { isOpen?: boolean }) {
   const content = useContent();
+  const [entering, setEntering] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) { setEntering(false); return; }
+    const id = requestAnimationFrame(() => setEntering(true));
+    return () => cancelAnimationFrame(id);
+  }, [isOpen]);
   const f = content.contactForm;
 
   const [email, setEmail] = useState("");
@@ -60,7 +67,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${entering ? styles.entering : ""}`}>
       <div className={styles.columns}>
         {/* Left column — form */}
         <div className={styles.column}>

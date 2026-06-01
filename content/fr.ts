@@ -83,6 +83,7 @@ export const fr: SiteContent = {
     {
       icon: SiGithub,
       label: "GitHub",
+      handle: "@naregordon",
       href: "https://github.com/naregordon",
       color: "#ffffff",
       bg: "#1a1a1a",
@@ -90,6 +91,7 @@ export const fr: SiteContent = {
     {
       icon: FaLinkedinIn,
       label: "LinkedIn",
+      handle: "Lucas Haladjian",
       href: "https://linkedin.com/in/placeholder",
       color: "#ffffff",
       bg: "#0A66C2",
@@ -97,11 +99,30 @@ export const fr: SiteContent = {
     {
       icon: SiMalt,
       label: "Malt",
+      handle: "@lucashaladjian1",
       href: "https://www.malt.fr/profile/lucashaladjian1",
       color: "#ffffff",
       bg: "#FC4F38",
     },
   ],
+
+  availability: {
+    open: true,
+    label: "Disponible pour missions",
+  },
+
+  stats: {
+    yearsLabel: "Ans d'expérience",
+    projectsLabel: "Projets",
+    projects: "15+",
+  },
+
+  tagline: "From pixel to production.",
+
+  now: {
+    text: "En freelance et en train de construire ce portfolio. À la recherche de projets front-end ambitieux — eCommerce, interfaces produit, ou tout autre défi stimulant.",
+    tags: ["#Freelance", "#React", "#Next.js", "#SFCC"],
+  },
 
   about:
     "Développeur front-end avec plus de 10 ans d'expérience, spécialisé dans le développement eCommerce sur Salesforce Commerce Cloud. J'ai contribué à des projets pour de grandes marques comme Dior, Royal Canin et Kenzo. Passionné par les interfaces performantes et accessibles, je suis aujourd'hui disponible en freelance pour de nouveaux défis.",
@@ -112,6 +133,7 @@ export const fr: SiteContent = {
   },
 
   resume: {
+    tagline: "Tu veux mon CV ?",
     downloadLabel: "Télécharger mon CV",
   },
 
@@ -142,10 +164,12 @@ export const fr: SiteContent = {
     widgets: {
       about: "À propos",
       experience: "Expériences",
-      skills: "Skills",
+      skills: "Stack",
       contact: "Contact",
       resume: "CV",
       settings: "Settings",
+      now: "En ce moment",
+      social: "Links",
     },
     pages: {
       experiences: "Expériences",

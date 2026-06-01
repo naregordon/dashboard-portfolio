@@ -38,12 +38,19 @@
   padding-bottom: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  animation: slideUp 0.3s ease both;
+  animation-delay: calc(var(--group-i, 0) * 60ms + 150ms);
 }
 
 .skillList {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .skillItem {
@@ -54,6 +61,8 @@
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
   line-height: 1;
+  animation: slideUp 0.35s ease both;
+  animation-delay: calc(var(--i, 0) * 35ms + 250ms);
 }
 
 .skillIcon {

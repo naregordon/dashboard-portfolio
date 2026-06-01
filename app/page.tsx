@@ -28,13 +28,13 @@ export default function Home() {
       <DashboardGrid isPageOpen={!!activePage} onNavigate={handleNavigate} />
       <Footer />
       <PagePanel page="experiences" isOpen={activePage === "experiences"} onBack={handleBack}>
-        <ExperiencesPage />
+        <ExperiencesPage isOpen={activePage === "experiences"} />
       </PagePanel>
       <PagePanel page="contact" isOpen={activePage === "contact"} onBack={handleBack}>
-        <ContactPage />
+        <ContactPage isOpen={activePage === "contact"} />
       </PagePanel>
       <PagePanel page="skills" isOpen={activePage === "skills"} onBack={handleBack}>
-        <SkillsPage />
+        <SkillsPage isOpen={activePage === "skills"} />
       </PagePanel>
     </>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useContent } from "@/context/LocaleContext";
 import type { Experience } from "@/content/types";
 import styles from "./ExperiencesPage.module.scss";
@@ -8,12 +9,17 @@ function endLabel(exp: Experience, present: string): string | number {
   return exp.end === null ? present : exp.end;
 }
 
-export default function ExperiencesPage() {
+export default function ExperiencesPage({ isOpen = false }: { isOpen?: boolean }) {
   const content = useContent();
   const sorted = [...content.experiences].sort((a, b) => b.start - a.start);
+  const [animKey, setAnimKey] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) setAnimKey((k) => k + 1);
+  }, [isOpen]);
 
   return (
-    <div className={styles.page}>
+    <div key={animKey} className={styles.page}>
       <div className={styles.timeline}>
         {sorted.map((exp, i) => (
           <div

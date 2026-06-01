@@ -12,7 +12,10 @@ interface Props {
 export default function ExperienceWidget({ displayed, onNavigate }: Props) {
   const content = useContent();
   return (
-    <Widget title={content.ui.widgets.experience}>
+    <Widget
+      title={content.ui.widgets.experience}
+      onClick={onNavigate ? () => onNavigate("experiences") : undefined}
+    >
       <ol className={`${styles.timeline} ${displayed ? styles.displayed : ""}`}>
         {content.experiences.map((exp) => (
           <li key={`${exp.company}-${exp.start}`} className={styles.item}>
@@ -29,11 +32,6 @@ export default function ExperienceWidget({ displayed, onNavigate }: Props) {
           </li>
         ))}
       </ol>
-      {onNavigate && (
-        <button className={styles.moreButton} onClick={() => onNavigate("experiences")}>
-          {content.ui.viewMore}
-        </button>
-      )}
     </Widget>
   );
 }

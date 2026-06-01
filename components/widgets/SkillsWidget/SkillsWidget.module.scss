@@ -1,70 +1,49 @@
-.strips {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  margin-inline: calc(-1 * var(--spacing-xl));
-}
 
-.strip {
-  overflow-x: auto;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    height: auto;
   }
-
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-
-  &:hover .inner {
-    animation-play-state: paused;
-  }
-}
-
-.inner {
-  display: flex;
-  gap: var(--spacing-md);
-  width: max-content;
-  animation: scrollLeft 36s linear infinite;
-}
-
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
 }
 
 .pill {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
-  white-space: nowrap;
-  flex-shrink: 0;
-  user-select: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-widget-border);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+  min-width: 0;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
 }
 
 .icon {
-  $icon-size: 50px;
-  width: $icon-size;
-  height: $icon-size;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
 }
 
 .label {
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .moreButton {

@@ -4,13 +4,19 @@ interface WidgetProps {
   title?: string;
   children?: React.ReactNode;
   className?: string;
+  onClick?: () => void;
+  ariaLabel?: string;
 }
 
-export default function Widget({ title, children, className }: WidgetProps) {
+export default function Widget({ title, children, className, onClick, ariaLabel }: WidgetProps) {
+  const Tag = onClick ? "button" : "article";
   return (
-    <article className={`${styles.widget} ${className ?? ""}`}>
+    <Tag
+      className={`${styles.widget} ${onClick ? styles.clickable : ""} ${className ?? ""}`}
+      {...(onClick ? { onClick, type: "button" as const, "aria-label": ariaLabel ?? title } : {})}
+    >
       {title && <h2 className={styles.title}>{title}</h2>}
       <div className={styles.content}>{children}</div>
-    </article>
+    </Tag>
   );
 }

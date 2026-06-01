@@ -71,17 +71,3 @@
   color: var(--color-accent);
 }
 
-.moreButton {
-  margin-top: var(--spacing-md);
-  font-size: var(--font-size-xs);
-  color: var(--color-accent);
-  cursor: pointer;
-  transition: color var(--transition-fast);
-  position: absolute;
-  inset-block-end: var(--spacing-md);
-  inset-inline-end: var(--spacing-md);
-
-  &:hover {
-    color: var(--color-accent-hover);
-  }
-}

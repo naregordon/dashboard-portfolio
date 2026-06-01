@@ -1,21 +1,56 @@
 .list {
   display: flex;
   flex-direction: row;
-  gap: var(--spacing-md);
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-.icon {
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  flex: 1;
+  transition: background var(--transition-fast);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.iconWrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-lg);
-  font-size: 1.4rem;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
 
-  &:hover {
-    opacity: 0.85;
-    transform: scale(1.08);
-  }
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.network {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.handle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -28,6 +28,24 @@
   }
 }
 
+@keyframes panelItemIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel:not(.open) .backButton,
+.panel:not(.open) .title {
+  opacity: 0;
+}
+
+.panel.open .backButton {
+  animation: panelItemIn 0.35s ease 0.15s both;
+}
+
+.panel.open .title {
+  animation: panelItemIn 0.35s ease 0.22s both;
+}
+
 .backButton {
   align-self: flex-start;
   display: flex;

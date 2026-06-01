@@ -31,7 +31,7 @@ export default function SettingsWidget() {
 
   useEffect(() => {
     applySettings(settings);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function toggle(key: keyof Settings) {
@@ -43,39 +43,79 @@ export default function SettingsWidget() {
     });
   }
 
-  const boolItems: { key: keyof Settings; label: string; sub: string }[] = [
-    { key: "light",      ...content.ui.settings.lightMode },
-    { key: "accessible", ...content.ui.settings.accessible },
+  const themeOptions = [
+    { value: false, label: "Dark" },
+    { value: true, label: "Light" },
   ];
 
   return (
-    <Widget title={content.ui.widgets.settings}>
+    <Widget>
       <ul className={styles.list}>
-        {boolItems.map(({ key, label, sub }) => (
-          <li key={key} className={styles.item}>
-            <div className={styles.info}>
-              <span className={styles.label}>{label}</span>
-              <span className={styles.sub}>{sub}</span>
-            </div>
-            <button
-              role="switch"
-              aria-checked={settings[key]}
-              aria-label={label}
-              className={`${styles.toggle} ${settings[key] ? styles.on : ""}`}
-              onClick={() => toggle(key)}
-            >
-              <span className={styles.thumb} />
-            </button>
-          </li>
-        ))}
+        {/* Theme */}
         <li className={styles.item}>
           <div className={styles.info}>
-            <span className={styles.label}>{content.ui.settings.language.label}</span>
+            <span className={styles.label}>
+              {content.ui.settings.lightMode.label}
+            </span>
+          </div>
+          <div
+            className={styles.langSwitch}
+            role="group"
+            aria-label={content.ui.settings.lightMode.label}
+          >
+            <span
+              className={styles.langSlider}
+              style={{
+                transform: settings.light
+                  ? "translateX(100%)"
+                  : "translateX(0)",
+              }}
+            />
+            {themeOptions.map(({ value, label }) => (
+              <button
+                key={label}
+                className={`${styles.langOption} ${settings.light === value ? styles.langActive : ""}`}
+                onClick={() => settings.light !== value && toggle("light")}
+                aria-pressed={settings.light === value}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </li>
+
+        {/* Accessibility */}
+        <li className={styles.item}>
+          <div className={styles.info}>
+            <span className={styles.label}>
+              {content.ui.settings.accessible.label}
+            </span>
+          </div>
+          <button
+            role="switch"
+            aria-checked={settings.accessible}
+            aria-label={content.ui.settings.accessible.label}
+            className={`${styles.toggle} ${settings.accessible ? styles.on : ""}`}
+            onClick={() => toggle("accessible")}
+          >
+            <span className={styles.thumb} />
+          </button>
+        </li>
+
+        {/* Language */}
+        <li className={styles.item}>
+          <div className={styles.info}>
+            <span className={styles.label}>
+              {content.ui.settings.language.label}
+            </span>
           </div>
           <div className={styles.langSwitch} role="group" aria-label="Language">
             <span
               className={styles.langSlider}
-              style={{ transform: locale === "en" ? "translateX(100%)" : "translateX(0)" }}
+              style={{
+                transform:
+                  locale === "en" ? "translateX(100%)" : "translateX(0)",
+              }}
             />
             {(["fr", "en"] as const).map((l) => (
               <button

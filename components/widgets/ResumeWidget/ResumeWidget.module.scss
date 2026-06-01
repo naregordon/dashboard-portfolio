@@ -4,7 +4,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
+  text-align: center;
+  gap: var(--spacing-lg);
   opacity: 0;
   transform: translateY(12px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
@@ -15,47 +16,25 @@
   }
 }
 
-.iconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-lg);
-  background: rgba(56, 189, 248, 0.12);
-  margin-bottom: var(--spacing-xs);
-}
-
-.icon {
-  font-size: 2rem;
-  color: var(--color-accent);
-}
-
-.label {
+.tagline {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  line-height: 1;
-}
-
-.sublabel {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-lg);
   background: var(--color-accent);
   color: #fff;
   border-radius: var(--radius-md);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  transition: background var(--transition-fast), transform var(--transition-fast);
   text-decoration: none;
+  transition: background var(--transition-fast), transform var(--transition-fast);
 
   &:hover {
     background: var(--color-accent-hover);
@@ -65,4 +44,8 @@
   &:active {
     transform: translateY(0);
   }
+}
+
+.icon {
+  font-size: 1.1rem;
 }

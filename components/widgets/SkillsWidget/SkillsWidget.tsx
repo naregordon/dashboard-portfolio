@@ -2,24 +2,7 @@
 
 import Widget from "@/components/ui/Widget/Widget";
 import { useContent } from "@/context/LocaleContext";
-import type { Skill } from "@/content/types";
 import styles from "./SkillsWidget.module.scss";
-
-function Strip({ skills }: { skills: Skill[] }) {
-  const doubled = [...skills, ...skills];
-  return (
-    <div className={styles.strip}>
-      <div className={styles.inner}>
-        {doubled.map(({ icon: Icon, label }, i) => (
-          <span key={`${label}-${i}`} className={styles.pill} aria-hidden={i >= skills.length}>
-            <Icon className={styles.icon} />
-            <span className={styles.label}>{label}</span>
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 interface Props {
   displayed?: boolean;
@@ -28,16 +11,21 @@ interface Props {
 
 export default function SkillsWidget({ displayed: _displayed, onNavigate }: Props) {
   const content = useContent();
+  const featured = content.skills.filter((s) => s.level !== undefined).slice(0, 8);
+
   return (
-    <Widget title={content.ui.widgets.skills}>
-      <div className={styles.strips}>
-        <Strip skills={content.skills} />
+    <Widget
+      title={content.ui.widgets.skills}
+      onClick={onNavigate ? () => onNavigate("skills") : undefined}
+    >
+      <div className={styles.grid}>
+        {featured.map(({ icon: Icon, label }) => (
+          <div key={label} className={styles.pill}>
+            <Icon className={styles.icon} aria-hidden />
+            <span className={styles.label}>{label}</span>
+          </div>
+        ))}
       </div>
-      {onNavigate && (
-        <button className={styles.moreButton} onClick={() => onNavigate("skills")}>
-          {content.ui.viewMore}
-        </button>
-      )}
     </Widget>
   );
 }

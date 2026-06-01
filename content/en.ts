@@ -80,10 +80,28 @@ export const en: SiteContent = {
   },
 
   socials: [
-    { icon: SiGithub,     label: "GitHub",   href: "https://github.com/naregordon",                   color: "#ffffff", bg: "#1a1a1a" },
-    { icon: FaLinkedinIn, label: "LinkedIn",  href: "https://linkedin.com/in/placeholder",             color: "#ffffff", bg: "#0A66C2" },
-    { icon: SiMalt,       label: "Malt",      href: "https://www.malt.fr/profile/lucashaladjian1",     color: "#ffffff", bg: "#FC4F38" },
+    { icon: SiGithub,     label: "GitHub",   handle: "@naregordon",      href: "https://github.com/naregordon",               color: "#ffffff", bg: "#1a1a1a" },
+    { icon: FaLinkedinIn, label: "LinkedIn",  handle: "Lucas Haladjian",  href: "https://linkedin.com/in/placeholder",         color: "#ffffff", bg: "#0A66C2" },
+    { icon: SiMalt,       label: "Malt",      handle: "@lucashaladjian1", href: "https://www.malt.fr/profile/lucashaladjian1", color: "#ffffff", bg: "#FC4F38" },
   ],
+
+  availability: {
+    open: true,
+    label: "Available for projects",
+  },
+
+  stats: {
+    yearsLabel:    "Years of experience",
+    projectsLabel: "Projects",
+    projects:      "15+",
+  },
+
+  tagline: "From pixel to production.",
+
+  now: {
+    text: "Freelancing and building this portfolio. Looking for exciting front-end projects — eCommerce, product interfaces, or anything ambitious.",
+    tags: ["#Freelance", "#React", "#Next.js", "#SFCC"],
+  },
 
   about:
     "Front-end developer with over 10 years of experience, specializing in eCommerce development on Salesforce Commerce Cloud. I have contributed to projects for major brands such as Dior, Royal Canin, and Kenzo. Passionate about building performant and accessible interfaces, I am now available as a freelancer for new exciting challenges.",
@@ -94,6 +112,7 @@ export const en: SiteContent = {
   },
 
   resume: {
+    tagline: "Want my resume?",
     downloadLabel: "Download Resume",
   },
 
@@ -122,10 +141,12 @@ export const en: SiteContent = {
     widgets: {
       about:      "About",
       experience: "Experience",
-      skills:     "Skills",
+      skills:     "Stack",
       contact:    "Contact",
       resume:     "Resume",
       settings:   "Settings",
+      now:        "Right now",
+      social:     "Links",
     },
     pages: {
       experiences: "Experience",
