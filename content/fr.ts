@@ -92,7 +92,7 @@ export const fr: SiteContent = {
       icon: FaLinkedinIn,
       label: "LinkedIn",
       handle: "Lucas Haladjian",
-      href: "https://linkedin.com/in/placeholder",
+      href: "https://www.linkedin.com/in/lucashaladjian/",
       color: "#ffffff",
       bg: "#0A66C2",
     },

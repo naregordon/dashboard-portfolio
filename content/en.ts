@@ -81,7 +81,7 @@ export const en: SiteContent = {
 
   socials: [
     { icon: SiGithub,     label: "GitHub",   handle: "@naregordon",      href: "https://github.com/naregordon",               color: "#ffffff", bg: "#1a1a1a" },
-    { icon: FaLinkedinIn, label: "LinkedIn",  handle: "Lucas Haladjian",  href: "https://linkedin.com/in/placeholder",         color: "#ffffff", bg: "#0A66C2" },
+    { icon: FaLinkedinIn, label: "LinkedIn",  handle: "Lucas Haladjian",  href: "https://www.linkedin.com/in/lucashaladjian/",         color: "#ffffff", bg: "#0A66C2" },
     { icon: SiMalt,       label: "Malt",      handle: "@lucashaladjian1", href: "https://www.malt.fr/profile/lucashaladjian1", color: "#ffffff", bg: "#FC4F38" },
   ],
 
