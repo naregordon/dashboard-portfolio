@@ -1,16 +1,23 @@
-.body {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: var(--spacing-lg);
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  animation: pageEnter 0.4s ease both;
 }
 
 .bio {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
-  font-size: var(--font-size-sm);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.paragraph {
+  font-size: var(--font-size-md);
   color: var(--color-text-primary);
   line-height: var(--line-height-normal);
 }
@@ -24,12 +31,11 @@
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  flex: 1;
+  gap: 4px;
 }
 
 .value {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   line-height: 1;
@@ -44,7 +50,7 @@
 
 .divider {
   width: 1px;
-  height: 32px;
+  height: 36px;
   background: var(--color-widget-border);
   flex-shrink: 0;
 }

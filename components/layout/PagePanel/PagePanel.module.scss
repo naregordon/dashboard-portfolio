@@ -24,6 +24,10 @@
   ) 1;
   animation: borderSpin 10s linear infinite;
 
+  @include mobile {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
   &.open {
     transform: translateX(0);
     pointer-events: auto;
@@ -72,6 +76,11 @@
 .content {
   flex: 1;
   overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .title {

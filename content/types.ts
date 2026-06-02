@@ -35,6 +35,7 @@ export type SiteContent = {
   experiences: Experience[];
   socials: Social[];
   about: string;
+  aboutShort: string;
   availability: {
     open: boolean;
     label: string;
@@ -91,6 +92,7 @@ export type SiteContent = {
       social: string;
     };
     pages: {
+      about: string;
       experiences: string;
       contact: string;
       skills: string;

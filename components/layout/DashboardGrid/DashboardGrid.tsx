@@ -101,7 +101,7 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
   };
 
   const widgets = [
-    { area: "about", node: (d: boolean) => <AboutWidget displayed={d} /> },
+    { area: "about", node: (d: boolean) => <AboutWidget displayed={d} onNavigate={onNavigate} /> },
     {
       area: "skills",
       node: (d: boolean) => (

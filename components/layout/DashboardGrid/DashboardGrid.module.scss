@@ -81,7 +81,7 @@
   margin-top: var(--spacing-md);
   font-size: 5vw;
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  color: var(--color-accent);
   line-height: 1.2;
   min-height: 1.2em;
   white-space: nowrap;
@@ -292,12 +292,12 @@
   }
 
   .gridItem {
-    min-height: 200px;
+    min-height: 150px;
     transform: translateY(24px);
 
     > * {
       height: auto;
-      min-height: 200px;
+      min-height: 150px;
     }
 
     .scrolled & {

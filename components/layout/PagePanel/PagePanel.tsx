@@ -8,7 +8,7 @@ interface Props {
   isOpen?: boolean;
   onBack?: () => void;
   children: React.ReactNode;
-  page: "experiences" | "contact" | "skills";
+  page: "about" | "experiences" | "contact" | "skills";
 }
 
 export default function PagePanel({ isOpen = true, onBack, children, page }: Props) {

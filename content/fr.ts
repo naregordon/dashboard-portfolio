@@ -1,6 +1,5 @@
-import { SiGithub, SiMalt } from "react-icons/si";
-import { FaLinkedinIn } from "react-icons/fa6";
 import { skills } from "./skills";
+import { tagline, socials, nowTags, statsProjects, availabilityOpen } from "./shared";
 import type { SiteContent } from "./types";
 
 export const fr: SiteContent = {
@@ -79,53 +78,31 @@ export const fr: SiteContent = {
     practices: "Bonnes pratiques",
   },
 
-  socials: [
-    {
-      icon: SiGithub,
-      label: "GitHub",
-      handle: "@naregordon",
-      href: "https://github.com/naregordon",
-      color: "#ffffff",
-      bg: "#1a1a1a",
-    },
-    {
-      icon: FaLinkedinIn,
-      label: "LinkedIn",
-      handle: "Lucas Haladjian",
-      href: "https://www.linkedin.com/in/lucashaladjian/",
-      color: "#ffffff",
-      bg: "#0A66C2",
-    },
-    {
-      icon: SiMalt,
-      label: "Malt",
-      handle: "@lucashaladjian1",
-      href: "https://www.malt.fr/profile/lucashaladjian1",
-      color: "#ffffff",
-      bg: "#FC4F38",
-    },
-  ],
+  socials,
 
   availability: {
-    open: true,
+    open: availabilityOpen,
     label: "Disponible pour missions",
   },
 
   stats: {
     yearsLabel: "Ans d'expérience",
     projectsLabel: "Projets",
-    projects: "15+",
+    projects: statsProjects,
   },
 
-  tagline: "From pixel to production.",
+  tagline,
 
   now: {
-    text: "En train de construire ce portfolio. À la recherche de projets front-end ambitieux — eCommerce, interfaces produit, ou tout autre défi stimulant.",
-    tags: ["#React", "#Next.js", "#ClaudeCode"],
+    text: "En train de construire ce portfolio. À la recherche de projets front-end ambitieux — eCommerce, applications web, ou tout autre défi stimulant.",
+    tags: nowTags,
   },
 
+  aboutShort:
+    "Développeur front-end avec 10+ ans d'expérience sur des plateformes eCommerce à fort trafic. Spécialisé en Salesforce Commerce Cloud (SFCC), je me concentre sur la performance, l'accessibilité et la maintenabilité du code.\n\nPassionné par l'expérience utilisateur, j'apprécie collaborer avec les équipes design et produit pour créer des solutions intuitives et évolutives. J'utilise des outils de développement modernes assistés par IA pour améliorer ma productivité tout en maintenant des standards élevés de qualité.",
+
   about:
-    "Développeur front-end avec plus de 10 ans d'expérience, spécialisé dans le développement eCommerce sur Salesforce Commerce Cloud. J'ai contribué à des projets pour de grandes marques comme Dior, Royal Canin et Kenzo. Passionné par les interfaces performantes et accessibles, je suis aujourd'hui disponible en freelance pour de nouveaux défis.",
+    "Développeur front-end avec plus de 10 ans d'expérience dans la création d'expériences digitales à fort trafic et de plateformes eCommerce à grande échelle. Spécialisé en Salesforce Commerce Cloud (SFCC), je me concentre sur la création d'applications rapides, accessibles et maintenables offrant une expérience utilisateur exceptionnelle.\n\nJe crois que les grands produits naissent d'une collaboration étroite entre les équipes engineering, design et produit. Que ce soit pour optimiser les performances, améliorer l'accessibilité ou affiner les parcours utilisateurs, j'aime trouver des solutions pragmatiques qui équilibrent qualité technique et objectifs métier.\n\nMa philosophie de développement est centrée sur un code propre, réutilisable et maintenable sur le long terme. Aujourd'hui, je combine cette expérience avec des outils de développement modernes assistés par IA pour travailler plus efficacement et livrer des solutions de haute qualité sans compromis sur les standards d'ingénierie.",
 
   contact: {
     tagline: "Une idée, une opportunité, une question ?",
@@ -174,6 +151,7 @@ export const fr: SiteContent = {
       social: "Links",
     },
     pages: {
+      about: "À propos",
       experiences: "Expériences",
       contact: "Contact",
       skills: "Skills",
