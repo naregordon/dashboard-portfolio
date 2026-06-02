@@ -18,9 +18,9 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     // Read the data-locale attribute set by the inline script before React hydrates,
     // so locale is correct on first render (no flash).
     if (typeof document !== "undefined") {
-      return document.documentElement.getAttribute("data-locale") === "en" ? "en" : "fr";
+      return document.documentElement.getAttribute("data-locale") === "fr" ? "fr" : "en";
     }
-    return "fr";
+    return "en";
   });
 
   function setLocale(l: Locale) {

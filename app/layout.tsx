@@ -33,7 +33,7 @@ export default function RootLayout({
                 var s = JSON.parse(localStorage.getItem('site-settings') || '{}');
                 if (s.light) document.documentElement.classList.add('light');
                 if (s.accessible) document.documentElement.classList.add('accessible');
-                if (s.locale === 'en') document.documentElement.setAttribute('data-locale', 'en');
+                if (s.locale === 'fr') document.documentElement.setAttribute('data-locale', 'fr');
               } catch(e) {}
             `,
           }}

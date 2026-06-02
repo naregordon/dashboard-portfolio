@@ -52,6 +52,8 @@ export type SiteContent = {
   contact: {
     tagline: string;
     cta: string;
+    introHeading: string;
+    introText: string;
   };
   resume: {
     tagline: string;
@@ -62,12 +64,12 @@ export type SiteContent = {
     emailPlaceholder: string;
     whoLabel: string;
     whoPlaceholder: string;
-    reasonLabel: string;
-    reasonPlaceholder: string;
     messageLabel: string;
     messagePlaceholder: string;
+    emailError: string;
     generateBtn: string;
     generatingBtn: string;
+    nextBtn: string;
     sendBtn: string;
     sendingBtn: string;
     successMsg: string;

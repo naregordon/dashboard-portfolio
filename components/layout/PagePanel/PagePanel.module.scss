@@ -1,3 +1,5 @@
+@use "../../../styles/mixins" as *;
+
 @keyframes borderSpin {
   to { --border-angle: 360deg; }
 }
@@ -79,4 +81,8 @@
   line-height: 1;
   text-align: center;
   margin-bottom: var(--spacing-2xl);
+
+  @include mobile {
+    margin-bottom: var(--spacing-xl);
+  }
 }

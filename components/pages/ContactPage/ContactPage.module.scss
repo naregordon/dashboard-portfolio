@@ -1,42 +1,134 @@
+@use "../../../styles/mixins" as *;
+
 @keyframes pageEnter {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.page {
-  padding: var(--spacing-2xl) 0;
-  opacity: 0;
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
+.page {
   &.entering {
     animation: pageEnter 0.4s ease both;
   }
 }
 
-.columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-2xl);
-}
+// ─── Layout ──────────────────────────────────────────────────────────────────
 
-.column {
+.layout {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.field {
+.introText {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+// ─── Form (right column) ─────────────────────────────────────────────────────
+
+.form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
 }
 
-.label {
+// ─── Step ────────────────────────────────────────────────────────────────────
+
+.step {
+  animation: slideDown 0.35s ease both;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-base);
+
+  &.stepActive {
+    --step-body-inner-display: flex;
+    border-color: rgba(56, 189, 248, 0.25);
+  }
+
+  &.stepDone {
+    border-color: rgba(74, 222, 128, 0.2);
+  }
+}
+
+.stepHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font-family: inherit;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:not(:disabled):hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.stepLabel {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  flex-shrink: 0;
 }
+
+.stepPreview {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.stepCheck {
+  color: #4ade80;
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+// ─── Collapsible body ────────────────────────────────────────────────────────
+
+.stepBody {
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.stepBodyCollapsed {
+    grid-template-rows: 0fr;
+  }
+}
+
+.stepBodyInner {
+  min-height: 0;
+  display: var(--step-body-inner-display, none);
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+// ─── Inputs ──────────────────────────────────────────────────────────────────
 
 .input {
   background: rgba(255, 255, 255, 0.04);
@@ -48,8 +140,8 @@
   font-family: inherit;
   width: 100%;
   transition: border-color var(--transition-base), background var(--transition-base);
-  resize: none;
   outline: none;
+  resize: none;
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.2);
@@ -63,56 +155,74 @@
 
 .textarea {
   resize: vertical;
+  min-height: 250px;
 }
 
-.messageArea {
-  flex: 1;
-  min-height: 200px;
+// ─── Textarea + AI button ────────────────────────────────────────────────────
+
+.textareaWrap {
+  position: relative;
 }
 
-.button {
-  padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+.aiBtn {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-sm);
+  padding: 4px 10px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+  font-size: var(--font-size-xs);
   font-family: inherit;
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
-  transition: background var(--transition-base), opacity var(--transition-base), transform var(--transition-fast);
-  align-self: flex-start;
+  transition: background var(--transition-fast), opacity var(--transition-fast);
+
+  &:not(:disabled):hover {
+    background: rgba(56, 189, 248, 0.22);
+  }
 
   &:disabled {
-    opacity: 0.4;
+    opacity: 0.35;
     cursor: not-allowed;
   }
-
-  &:not(:disabled):hover {
-    transform: translateY(-1px);
-  }
-
-  &:not(:disabled):active {
-    transform: translateY(0);
-  }
 }
 
-.buttonGenerate {
-  background: rgba(56, 189, 248, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  color: var(--color-accent);
+// ─── Step actions ─────────────────────────────────────────────────────────────
 
-  &:not(:disabled):hover {
-    background: rgba(56, 189, 248, 0.25);
-    border-color: rgba(56, 189, 248, 0.6);
-  }
+.stepActions {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.buttonSend {
-  background: var(--color-accent);
-  border: 1px solid transparent;
-  color: #fff;
+.nextBtn {
+  @include btn-outline;
+}
 
-  &:not(:disabled):hover {
-    background: var(--color-accent-hover);
-  }
+// ─── Feedback ────────────────────────────────────────────────────────────────
+
+.feedback {
+  animation: slideDown 0.35s ease both;
+  padding-top: var(--spacing-sm);
+}
+
+// ─── Send button (inside last step) ──────────────────────────────────────────
+
+.sendBtn {
+  @include btn-primary;
+  padding: var(--spacing-md) var(--spacing-xl);
+  align-self: flex-start;
+}
+
+.inputError {
+  border-color: rgba(255, 107, 107, 0.6) !important;
+}
+
+.fieldError {
+  font-size: var(--font-size-xs);
+  color: #ff6b6b;
+  margin-top: calc(var(--spacing-xs) * -1);
 }
 
 .error {
@@ -122,12 +232,14 @@
 
 .success {
   font-size: var(--font-size-sm);
-  color: #4caf82;
+  color: #4ade80;
   font-weight: var(--font-weight-medium);
 }
 
-@media (max-width: 768px) {
-  .columns {
-    grid-template-columns: 1fr;
+// ─── Mobile ──────────────────────────────────────────────────────────────────
+
+@include mobile {
+  .layout {
+    max-width: 100%;
   }
 }

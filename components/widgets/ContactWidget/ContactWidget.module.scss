@@ -1,3 +1,5 @@
+@use "../../../styles/mixins" as *;
+
 .body {
   height: 100%;
   display: flex;
@@ -24,17 +26,5 @@
 }
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  background: var(--color-accent);
-  color: #fff;
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  transition: background var(--transition-fast), transform var(--transition-fast);
-
-  .body:hover & {
-    background: var(--color-accent-hover);
-  }
+  @include btn-primary;
 }

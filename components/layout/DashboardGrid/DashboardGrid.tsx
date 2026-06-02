@@ -40,10 +40,10 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
       }, 60);
 
       return () => clearInterval(interval);
-    }, 800);
+    }, 0);
 
     return () => clearTimeout(start);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Block mobile scroll from the start, enable touch detection only after typing
@@ -59,7 +59,10 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
 
     if (isMobile) {
       const handleTouch = () => setHasScrolled(true);
-      window.addEventListener("touchmove", handleTouch, { passive: true, once: true });
+      window.addEventListener("touchmove", handleTouch, {
+        passive: true,
+        once: true,
+      });
       return () => window.removeEventListener("touchmove", handleTouch);
     }
 
@@ -75,7 +78,9 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
     const isMobile = window.innerWidth <= 900;
     if (!isMobile) return;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, []);
 
   // Unlock scroll once all widgets have finished animating
@@ -96,14 +101,29 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
   };
 
   const widgets = [
-    { area: "about",      node: (d: boolean) => <AboutWidget displayed={d} /> },
-    { area: "skills",     node: (d: boolean) => <SkillsWidget displayed={d} onNavigate={onNavigate} /> },
-    { area: "experience", node: (d: boolean) => <ExperienceWidget displayed={d} onNavigate={onNavigate} /> },
-    { area: "cv",         node: (d: boolean) => <ResumeWidget displayed={d} /> },
-    { area: "contact",    node: (d: boolean) => <ContactWidget displayed={d} onNavigate={onNavigate} /> },
-    { area: "social",     node: (d: boolean) => <SocialWidget displayed={d} /> },
-    { area: "settings",   node: () => <SettingsWidget /> },
-    { area: "now",        node: (d: boolean) => <NowWidget displayed={d} /> },
+    { area: "about", node: (d: boolean) => <AboutWidget displayed={d} /> },
+    {
+      area: "skills",
+      node: (d: boolean) => (
+        <SkillsWidget displayed={d} onNavigate={onNavigate} />
+      ),
+    },
+    {
+      area: "experience",
+      node: (d: boolean) => (
+        <ExperienceWidget displayed={d} onNavigate={onNavigate} />
+      ),
+    },
+    { area: "cv", node: (d: boolean) => <ResumeWidget displayed={d} /> },
+    {
+      area: "contact",
+      node: (d: boolean) => (
+        <ContactWidget displayed={d} onNavigate={onNavigate} />
+      ),
+    },
+    { area: "social", node: (d: boolean) => <SocialWidget displayed={d} /> },
+    { area: "settings", node: () => <SettingsWidget /> },
+    { area: "now", node: (d: boolean) => <NowWidget displayed={d} /> },
   ];
 
   return (
@@ -113,7 +133,7 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
         aria-label="Dashboard"
       >
         <div
-          className={`${styles.scrollHint} ${(hasScrolled || !typingDone) ? styles.scrollHintHidden : ""}`}
+          className={`${styles.scrollHint} ${hasScrolled || !typingDone ? styles.scrollHintHidden : ""}`}
           aria-hidden
         >
           <div className={styles.scrollMouse}>
@@ -131,15 +151,23 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
                 HALADJIAN
               </h1>
               <p className={styles.subtitle}>Front-end Developer</p>
-              <p className={styles.tagline} aria-label={content.tagline}>
-                {typedText}
-                <span className={`${styles.cursor} ${typingDone ? styles.cursorDone : ""}`} aria-hidden />
-              </p>
-              <div className={`${styles.availBadge} ${content.availability.open ? styles.availOpen : styles.availClosed}`}>
+              <div
+                className={`${styles.availBadge} ${content.availability.open ? styles.availOpen : styles.availClosed}`}
+              >
                 <span className={styles.availDot} />
                 {content.availability.label}
               </div>
             </div>
+            <p
+              className={`${styles.tagline} ${hasScrolled ? styles.taglineHidden : ""}`}
+              aria-label={content.tagline}
+            >
+              {typedText}
+              <span
+                className={`${styles.cursor} ${typingDone ? styles.cursorDone : ""}`}
+                aria-hidden
+              />
+            </p>
           </header>
 
           {widgets.map(({ area, node }, index) => (
@@ -147,7 +175,9 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
               key={index}
               className={styles.gridItem}
               style={{ gridArea: area, transitionDelay: `${index * 0.1}s` }}
-              onTransitionEnd={(e) => handleTransitionEnd(index, e.propertyName)}
+              onTransitionEnd={(e) =>
+                handleTransitionEnd(index, e.propertyName)
+              }
             >
               {node(displayed[index])}
             </div>

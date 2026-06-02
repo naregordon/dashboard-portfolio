@@ -73,16 +73,37 @@ export const en: SiteContent = {
   skills,
 
   skillCategoryTitles: {
-    frontend:  "Front-end",
-    backend:   "Back-end",
-    tools:     "Tools",
+    frontend: "Front-end",
+    backend: "Back-end",
+    tools: "Tools",
     practices: "Best Practices",
   },
 
   socials: [
-    { icon: SiGithub,     label: "GitHub",   handle: "@naregordon",      href: "https://github.com/naregordon",               color: "#ffffff", bg: "#1a1a1a" },
-    { icon: FaLinkedinIn, label: "LinkedIn",  handle: "Lucas Haladjian",  href: "https://www.linkedin.com/in/lucashaladjian/",         color: "#ffffff", bg: "#0A66C2" },
-    { icon: SiMalt,       label: "Malt",      handle: "@lucashaladjian1", href: "https://www.malt.fr/profile/lucashaladjian1", color: "#ffffff", bg: "#FC4F38" },
+    {
+      icon: SiGithub,
+      label: "GitHub",
+      handle: "@naregordon",
+      href: "https://github.com/naregordon",
+      color: "#ffffff",
+      bg: "#1a1a1a",
+    },
+    {
+      icon: FaLinkedinIn,
+      label: "LinkedIn",
+      handle: "Lucas Haladjian",
+      href: "https://www.linkedin.com/in/lucashaladjian/",
+      color: "#ffffff",
+      bg: "#0A66C2",
+    },
+    {
+      icon: SiMalt,
+      label: "Malt",
+      handle: "@lucashaladjian1",
+      href: "https://www.malt.fr/profile/lucashaladjian1",
+      color: "#ffffff",
+      bg: "#FC4F38",
+    },
   ],
 
   availability: {
@@ -91,16 +112,16 @@ export const en: SiteContent = {
   },
 
   stats: {
-    yearsLabel:    "Years of experience",
+    yearsLabel: "Years of experience",
     projectsLabel: "Projects",
-    projects:      "15+",
+    projects: "15+",
   },
 
   tagline: "From pixel to production.",
 
   now: {
     text: "Freelancing and building this portfolio. Looking for exciting front-end projects — eCommerce, product interfaces, or anything ambitious.",
-    tags: ["#Freelance", "#React", "#Next.js", "#SFCC"],
+    tags: ["#React", "#Next.js", "#ClaudeCode"],
   },
 
   about:
@@ -109,6 +130,9 @@ export const en: SiteContent = {
   contact: {
     tagline: "An idea, an opportunity, a question?",
     cta: "Write a message",
+    introHeading: "Let's have a talk.",
+    introText:
+      "Have a project in mind, an opportunity to share, or just want to say hi? Fill in the form and I'll get back to you.",
   },
 
   resume: {
@@ -117,46 +141,47 @@ export const en: SiteContent = {
   },
 
   contactForm: {
-    emailLabel:        "Your email",
-    emailPlaceholder:  "you@example.com",
-    whoLabel:          "Who are you?",
-    whoPlaceholder:    "Developer, recruiter, collaborator...",
-    reasonLabel:       "Why are you reaching out?",
-    reasonPlaceholder: "Job opportunity, collaboration, portfolio feedback...",
-    messageLabel:      "Message",
-    messagePlaceholder:"The message will appear here after generation. You can also write it directly.",
-    generateBtn:       "✦ Generate with AI",
-    generatingBtn:     "Generating...",
-    sendBtn:           "Send →",
-    sendingBtn:        "Sending...",
-    successMsg:        "✓ Message sent!",
-    errorGeneral:      "An error occurred",
+    emailLabel: "Your email",
+    emailPlaceholder: "you@example.com",
+    whoLabel: "Who are you?",
+    whoPlaceholder: "Developer, recruiter, collaborator...",
+    messageLabel: "Your message",
+    messagePlaceholder:
+      "Write your message here, or briefly describe what you want to say and let AI polish it.",
+    emailError: "Please enter a valid email address.",
+    generateBtn: "✦ Polish with AI",
+    generatingBtn: "Generating...",
+    nextBtn: "Next →",
+    sendBtn: "Send →",
+    sendingBtn: "Sending...",
+    successMsg: "✓ Message sent!",
+    errorGeneral: "An error occurred",
   },
 
   ui: {
-    present:  "Present",
-    back:     "← Back",
+    present: "Present",
+    back: "← Back",
     viewMore: "View more →",
-    close:    "Close",
+    close: "Close",
     widgets: {
-      about:      "About",
+      about: "About",
       experience: "Experience",
-      skills:     "Stack",
-      contact:    "Contact",
-      resume:     "Resume",
-      settings:   "Settings",
-      now:        "Right now",
-      social:     "Links",
+      skills: "Stack",
+      contact: "Contact",
+      resume: "Resume",
+      settings: "Settings",
+      now: "Right now",
+      social: "Links",
     },
     pages: {
       experiences: "Experience",
-      contact:     "Contact",
-      skills:      "Skills",
+      contact: "Contact",
+      skills: "Skills",
     },
     settings: {
-      lightMode:  { label: "Light mode",    sub: "Light theme" },
+      lightMode: { label: "Light mode", sub: "Light theme" },
       accessible: { label: "Accessibility", sub: "Reduces animations" },
-      language:   { label: "Language",       sub: "" },
+      language: { label: "Language", sub: "" },
     },
   },
 };

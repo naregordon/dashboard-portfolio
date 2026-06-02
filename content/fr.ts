@@ -120,8 +120,8 @@ export const fr: SiteContent = {
   tagline: "From pixel to production.",
 
   now: {
-    text: "En freelance et en train de construire ce portfolio. À la recherche de projets front-end ambitieux — eCommerce, interfaces produit, ou tout autre défi stimulant.",
-    tags: ["#Freelance", "#React", "#Next.js", "#SFCC"],
+    text: "En train de construire ce portfolio. À la recherche de projets front-end ambitieux — eCommerce, interfaces produit, ou tout autre défi stimulant.",
+    tags: ["#React", "#Next.js", "#ClaudeCode"],
   },
 
   about:
@@ -130,6 +130,9 @@ export const fr: SiteContent = {
   contact: {
     tagline: "Une idée, une opportunité, une question ?",
     cta: "Contactez-moi",
+    introHeading: "Parlons-en.",
+    introText:
+      "Un projet en tête, une opportunité à partager, ou juste envie de dire bonjour ? Remplissez le formulaire et je vous réponds.",
   },
 
   resume: {
@@ -142,14 +145,13 @@ export const fr: SiteContent = {
     emailPlaceholder: "vous@example.com",
     whoLabel: "Qui êtes-vous ?",
     whoPlaceholder: "Développeur, recruteur, collaborateur...",
-    reasonLabel: "Pourquoi me contacter ?",
-    reasonPlaceholder:
-      "Opportunité de poste, collaboration, retour sur le portfolio...",
-    messageLabel: "Message",
+    messageLabel: "Votre message",
     messagePlaceholder:
-      "Le message apparaîtra ici après génération. Vous pouvez aussi l'écrire directement.",
-    generateBtn: "✦ Générer avec l'IA",
+      "Rédigez votre message ici, ou décrivez brièvement ce que vous souhaitez dire et laissez l'IA le mettre en forme.",
+    emailError: "Veuillez entrer une adresse email valide.",
+    generateBtn: "✦ Peaufiner avec l'IA",
     generatingBtn: "Génération en cours...",
+    nextBtn: "Suivant →",
     sendBtn: "Envoyer →",
     sendingBtn: "Envoi en cours...",
     successMsg: "✓ Message envoyé !",
