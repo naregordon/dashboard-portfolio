@@ -79,12 +79,12 @@
 
 .tagline {
   margin-top: var(--spacing-md);
-  font-size: 5vw;
+  font-size: 3.2vw;
   font-weight: var(--font-weight-bold);
   color: var(--color-accent);
   line-height: 1.2;
   min-height: 1.2em;
-  white-space: nowrap;
+  width: 90vw;
   opacity: 1;
   transition: opacity 0.4s ease;
 
