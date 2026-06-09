@@ -2,7 +2,7 @@ import { SiGithub, SiMalt } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa6";
 import type { Social } from "./types";
 
-export const tagline = "From pixel to production.";
+export const tagline = "Great experiences start with great frontend engineering.";
 export const availabilityOpen = true;
 export const statsProjects = "15+";
 export const nowTags = ["#React", "#Next.js", "#ClaudeCode"];
