@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useMemo, useCallback, ReactNode } from "react";
 import { fr } from "@/content/fr";
 import { en } from "@/content/en";
 import type { Locale, SiteContent } from "@/content/types";
@@ -23,17 +23,22 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     return "en";
   });
 
-  function setLocale(l: Locale) {
+  const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);
     document.documentElement.setAttribute("data-locale", l);
     try {
       const saved = JSON.parse(localStorage.getItem("site-settings") || "{}");
       localStorage.setItem("site-settings", JSON.stringify({ ...saved, locale: l }));
     } catch {}
-  }
+  }, []);
+
+  const value = useMemo(
+    () => ({ locale, setLocale, content: locale === "en" ? en : fr }),
+    [locale, setLocale]
+  );
 
   return (
-    <LocaleContext.Provider value={{ locale, setLocale, content: locale === "en" ? en : fr }}>
+    <LocaleContext.Provider value={value}>
       {children}
     </LocaleContext.Provider>
   );

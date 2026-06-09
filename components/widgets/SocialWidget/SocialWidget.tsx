@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Widget from "@/components/ui/Widget/Widget";
 import { useContent } from "@/context/LocaleContext";
 import styles from "./SocialWidget.module.scss";
@@ -8,7 +9,7 @@ interface Props {
   displayed?: boolean;
 }
 
-export default function SocialWidget({ displayed: _displayed }: Props) {
+function SocialWidget({ displayed: _displayed }: Props) {
   const content = useContent();
   return (
     <Widget>
@@ -40,3 +41,5 @@ export default function SocialWidget({ displayed: _displayed }: Props) {
     </Widget>
   );
 }
+
+export default memo(SocialWidget);

@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Widget from "@/components/ui/Widget/Widget";
 import { useContent } from "@/context/LocaleContext";
 import styles from "./NowWidget.module.scss";
@@ -8,7 +9,7 @@ interface Props {
   displayed?: boolean;
 }
 
-export default function NowWidget({ displayed: _displayed }: Props) {
+function NowWidget({ displayed: _displayed }: Props) {
   const content = useContent();
   return (
     <Widget title={content.ui.widgets.now}>
@@ -23,3 +24,5 @@ export default function NowWidget({ displayed: _displayed }: Props) {
     </Widget>
   );
 }
+
+export default memo(NowWidget);

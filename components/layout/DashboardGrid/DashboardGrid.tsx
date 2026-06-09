@@ -66,11 +66,18 @@ export default function DashboardGrid({ isPageOpen, onNavigate }: Props) {
       return () => window.removeEventListener("touchmove", handleTouch);
     }
 
+    let rafId: number;
     const handleScroll = () => {
-      if (window.scrollY > 0) setHasScrolled(true);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (window.scrollY > 0) setHasScrolled(true);
+      });
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, [hasScrolled, typingDone]);
 
   // Block mobile scroll from mount (independently of typing)

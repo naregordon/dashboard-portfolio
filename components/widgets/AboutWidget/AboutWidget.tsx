@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Widget from "@/components/ui/Widget/Widget";
 import { useContent } from "@/context/LocaleContext";
 import styles from "./AboutWidget.module.scss";
@@ -9,7 +10,7 @@ interface Props {
   onNavigate?: (page: string) => void;
 }
 
-export default function AboutWidget({ displayed: _displayed, onNavigate }: Props) {
+function AboutWidget({ displayed: _displayed, onNavigate }: Props) {
   const content = useContent();
 
   const firstYear = Math.min(...content.experiences.map((e) => e.start));
@@ -41,3 +42,5 @@ export default function AboutWidget({ displayed: _displayed, onNavigate }: Props
     </Widget>
   );
 }
+
+export default memo(AboutWidget);

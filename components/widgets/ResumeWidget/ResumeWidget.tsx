@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Widget from "@/components/ui/Widget/Widget";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { useContent } from "@/context/LocaleContext";
@@ -9,7 +10,7 @@ interface Props {
   displayed?: boolean;
 }
 
-export default function ResumeWidget({ displayed }: Props) {
+function ResumeWidget({ displayed }: Props) {
   const content = useContent();
   return (
     <Widget>
@@ -27,3 +28,5 @@ export default function ResumeWidget({ displayed }: Props) {
     </Widget>
   );
 }
+
+export default memo(ResumeWidget);

@@ -92,11 +92,14 @@ export default function ContactPage({ isOpen = false }: { isOpen?: boolean }) {
   async function handleGenerate() {
     setGenerating(true);
     setError("");
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15_000);
     try {
       const res = await fetch("/api/generate-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ who, email, message }),
+        signal: controller.signal,
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? f.errorGeneral);
@@ -104,6 +107,7 @@ export default function ContactPage({ isOpen = false }: { isOpen?: boolean }) {
     } catch (e) {
       setError(e instanceof Error ? e.message : f.errorGeneral);
     } finally {
+      clearTimeout(timeout);
       setGenerating(false);
     }
   }
@@ -111,11 +115,14 @@ export default function ContactPage({ isOpen = false }: { isOpen?: boolean }) {
   async function handleSend() {
     setSending(true);
     setError("");
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
     try {
       const res = await fetch("/api/send-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, who, message }),
+        signal: controller.signal,
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? f.errorGeneral);
@@ -123,6 +130,7 @@ export default function ContactPage({ isOpen = false }: { isOpen?: boolean }) {
     } catch (e) {
       setError(e instanceof Error ? e.message : f.errorGeneral);
     } finally {
+      clearTimeout(timeout);
       setSending(false);
     }
   }

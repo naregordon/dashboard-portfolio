@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Widget from "@/components/ui/Widget/Widget";
 import { useContent } from "@/context/LocaleContext";
 import styles from "./SkillsWidget.module.scss";
@@ -9,7 +10,7 @@ interface Props {
   onNavigate?: (page: string) => void;
 }
 
-export default function SkillsWidget({ displayed: _displayed, onNavigate }: Props) {
+function SkillsWidget({ displayed: _displayed, onNavigate }: Props) {
   const content = useContent();
   const featured = content.skills.filter((s) => s.level !== undefined).slice(0, 8);
 
@@ -29,3 +30,5 @@ export default function SkillsWidget({ displayed: _displayed, onNavigate }: Prop
     </Widget>
   );
 }
+
+export default memo(SkillsWidget);

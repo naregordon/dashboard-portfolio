@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import DashboardGrid from "@/components/layout/DashboardGrid/DashboardGrid";
 import Footer from "@/components/layout/Footer/Footer";
 import PagePanel from "@/components/layout/PagePanel/PagePanel";
@@ -14,15 +14,15 @@ type Page = "about" | "experiences" | "contact" | "skills";
 export default function Home() {
   const [activePage, setActivePage] = useState<Page | null>(null);
 
-  const handleNavigate = (page: string) => {
+  const handleNavigate = useCallback((page: string) => {
     setActivePage(page as Page);
     window.history.pushState(null, "", `/${page}`);
-  };
+  }, []);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     setActivePage(null);
     window.history.replaceState(null, "", "/");
-  };
+  }, []);
 
   return (
     <>
