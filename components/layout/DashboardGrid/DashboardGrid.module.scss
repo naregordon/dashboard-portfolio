@@ -13,9 +13,9 @@
   border: 3px solid transparent;
   border-image: conic-gradient(
     from var(--border-angle),
-    #38bdf8 0%,
+    var(--color-accent) 0%,
     #818cf8 33%,
-    #f8bb38 66%,
+    var(--color-brand) 66%,
     #818cf8 100%
   ) 1;
   animation: borderSpin 10s linear infinite;
@@ -64,7 +64,7 @@
 .name {
   font-size: var(--name-size);
   line-height: 1;
-  color: var(--color-text-primary);
+  color: var(--color-brand);
   transition: font-size 0.6s ease;
   animation: fadeSlideUp 0.5s ease both;
 }
@@ -72,7 +72,8 @@
 .subtitle {
   margin-top: var(--spacing-sm);
   font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+  font-weight: 600;
   text-transform: uppercase;
   animation: fadeSlideUp 0.4s ease 0.2s both;
 }
@@ -81,7 +82,7 @@
   margin-top: var(--spacing-md);
   font-size: 3.2vw;
   font-weight: var(--font-weight-bold);
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   line-height: 1.2;
   min-height: 1.2em;
   width: 90vw;

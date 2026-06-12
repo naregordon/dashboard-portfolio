@@ -66,6 +66,10 @@
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: color var(--transition-fast), background var(--transition-fast);
+  position: absolute;
+  left: var(--spacing-xl);
+  top: var(--spacing-xl);
+  z-index: 1;
 
   &:hover {
     color: var(--color-text-primary);
