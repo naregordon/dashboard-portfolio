@@ -13,9 +13,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://haladjian.dev";
+
+const description =
+  "Front-end Developer with 10+ years of experience building high-traffic eCommerce platforms. Specialized in Salesforce Commerce Cloud (SFCC), React, and Next.js. Available for freelance projects.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Lucas Haladjian — Front-end Developer",
-  description: "Portfolio of Lucas Haladjian, front-end developer.",
+  description,
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Lucas Haladjian",
+    title: "Lucas Haladjian — Front-end Developer",
+    description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "Lucas Haladjian — Front-end Developer",
+    description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +59,23 @@ export default function RootLayout({
                 if (s.locale === 'fr') document.documentElement.setAttribute('data-locale', 'fr');
               } catch(e) {}
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Lucas Haladjian",
+              jobTitle: "Front-end Developer",
+              url: siteUrl,
+              sameAs: [
+                "https://github.com/naregordon",
+                "https://www.linkedin.com/in/lucashaladjian/",
+                "https://www.malt.fr/profile/lucashaladjian1",
+              ],
+            }),
           }}
         />
       </head>

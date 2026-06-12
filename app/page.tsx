@@ -26,20 +26,22 @@ export default function Home() {
 
   return (
     <>
-      <DashboardGrid isPageOpen={!!activePage} onNavigate={handleNavigate} />
+      <main>
+        <DashboardGrid isPageOpen={!!activePage} onNavigate={handleNavigate} />
+        <PagePanel page="about" isOpen={activePage === "about"} onBack={handleBack}>
+          <AboutPage />
+        </PagePanel>
+        <PagePanel page="experiences" isOpen={activePage === "experiences"} onBack={handleBack}>
+          <ExperiencesPage isOpen={activePage === "experiences"} />
+        </PagePanel>
+        <PagePanel page="contact" isOpen={activePage === "contact"} onBack={handleBack}>
+          <ContactPage isOpen={activePage === "contact"} />
+        </PagePanel>
+        <PagePanel page="skills" isOpen={activePage === "skills"} onBack={handleBack}>
+          <SkillsPage isOpen={activePage === "skills"} />
+        </PagePanel>
+      </main>
       <Footer />
-      <PagePanel page="about" isOpen={activePage === "about"} onBack={handleBack}>
-        <AboutPage />
-      </PagePanel>
-      <PagePanel page="experiences" isOpen={activePage === "experiences"} onBack={handleBack}>
-        <ExperiencesPage isOpen={activePage === "experiences"} />
-      </PagePanel>
-      <PagePanel page="contact" isOpen={activePage === "contact"} onBack={handleBack}>
-        <ContactPage isOpen={activePage === "contact"} />
-      </PagePanel>
-      <PagePanel page="skills" isOpen={activePage === "skills"} onBack={handleBack}>
-        <SkillsPage isOpen={activePage === "skills"} />
-      </PagePanel>
     </>
   );
 }
