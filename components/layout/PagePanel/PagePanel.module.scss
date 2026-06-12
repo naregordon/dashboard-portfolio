@@ -81,6 +81,7 @@
   flex: 1;
   overflow: auto;
   scrollbar-width: none;
+  padding-block-start: var(--spacing-xl);
 
   &::-webkit-scrollbar {
     display: none;
