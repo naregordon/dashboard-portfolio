@@ -11,6 +11,7 @@ import {
   SiNodedotjs,
   SiFigma,
   SiVercel,
+  SiOpenai,
 } from "react-icons/si";
 import {
   TbApi,
@@ -41,6 +42,7 @@ export const skills: Skill[] = [
   // Tools
   { icon: SiGit, label: "Git", category: "tools", level: 82 },
   { icon: TbRobot, label: "Claude Code", category: "tools" },
+  { icon: SiOpenai, label: "Codex", category: "tools" },
   { icon: SiFigma, label: "Figma", category: "tools", level: 70 },
   { icon: TbMail, label: "Outlook 365", category: "tools" },
   // Practices

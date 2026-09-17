@@ -94,7 +94,9 @@ export const fr: SiteContent = {
   tagline,
 
   now: {
-    text: "En train de construire ce portfolio. À la recherche de projets front-end ambitieux — eCommerce, applications web, ou tout autre défi stimulant.",
+    before: "En train de construire ",
+    link: { label: "retold.it", href: "https://retold.it" },
+    after: ", un projet personnel mêlant réseau social et IA. Toujours à la recherche d'un nouveau contrat — eCommerce, applications web, ou tout autre défi front-end stimulant.",
     tags: nowTags,
   },
 
@@ -158,7 +160,6 @@ export const fr: SiteContent = {
     },
     settings: {
       lightMode: { label: "Mode clair", sub: "Thème lumineux" },
-      accessible: { label: "Accessibilité", sub: "Réduit les animations" },
       language: { label: "Langue", sub: "" },
     },
   },

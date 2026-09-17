@@ -14,7 +14,18 @@ function NowWidget({ displayed: _displayed }: Props) {
   return (
     <Widget title={content.ui.widgets.now}>
       <div className={styles.body}>
-        <p className={styles.text}>{content.now.text}</p>
+        <p className={styles.text}>
+          {content.now.before}
+          <a
+            href={content.now.link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            {content.now.link.label}
+          </a>
+          {content.now.after}
+        </p>
         <div className={styles.tags}>
           {content.now.tags.map((tag) => (
             <span key={tag} className={styles.tag}>{tag}</span>

@@ -94,7 +94,9 @@ export const en: SiteContent = {
   tagline,
 
   now: {
-    text: "Freelancing and building this portfolio. Looking for exciting front-end projects — eCommerce, product interfaces, or anything ambitious.",
+    before: "Building ",
+    link: { label: "retold.it", href: "https://retold.it" },
+    after: ", a personal project blending social network and AI. Always open to a new contract — eCommerce, web apps, or any ambitious front-end challenge.",
     tags: nowTags,
   },
 
@@ -158,7 +160,6 @@ export const en: SiteContent = {
     },
     settings: {
       lightMode: { label: "Light mode", sub: "Light theme" },
-      accessible: { label: "Accessibility", sub: "Reduces animations" },
       language: { label: "Language", sub: "" },
     },
   },

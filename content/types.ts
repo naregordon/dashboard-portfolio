@@ -42,7 +42,9 @@ export type SiteContent = {
   };
   tagline: string;
   now: {
-    text: string;
+    before: string;
+    link: { label: string; href: string };
+    after: string;
     tags: string[];
   };
   stats: {
@@ -99,7 +101,6 @@ export type SiteContent = {
     };
     settings: {
       lightMode: { label: string; sub: string };
-      accessible: { label: string; sub: string };
       language: { label: string; sub: string };
     };
   };

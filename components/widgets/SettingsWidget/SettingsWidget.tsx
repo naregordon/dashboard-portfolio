@@ -7,14 +7,12 @@ import styles from "./SettingsWidget.module.scss";
 
 type Settings = {
   light: boolean;
-  accessible: boolean;
 };
 
-const DEFAULTS: Settings = { light: false, accessible: false };
+const DEFAULTS: Settings = { light: false };
 
 function applySettings(s: Settings) {
   document.documentElement.classList.toggle("light", s.light);
-  document.documentElement.classList.toggle("accessible", s.accessible);
 }
 
 export default function SettingsWidget() {
@@ -82,24 +80,6 @@ export default function SettingsWidget() {
               </button>
             ))}
           </div>
-        </li>
-
-        {/* Accessibility */}
-        <li className={styles.item}>
-          <div className={styles.info}>
-            <span className={styles.label}>
-              {content.ui.settings.accessible.label}
-            </span>
-          </div>
-          <button
-            role="switch"
-            aria-checked={settings.accessible}
-            aria-label={content.ui.settings.accessible.label}
-            className={`${styles.toggle} ${settings.accessible ? styles.on : ""}`}
-            onClick={() => toggle("accessible")}
-          >
-            <span className={styles.thumb} />
-          </button>
         </li>
 
         {/* Language */}

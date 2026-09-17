@@ -13,6 +13,17 @@
   line-height: 1.45;
 }
 
+.link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color var(--transition-base);
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
